@@ -1,5 +1,12 @@
 # 万能链接解析器（MaiBot 移植版）
 
+> **本仓库为修复版 fork**（上游：[tidain/maibot-platform-parser](https://github.com/tidain/maibot-platform-parser)）
+>
+> 修复内容：群聊 @ 识别失效 —— MaiBot 适配层把 at 段归一化为 `data.target_user_id`，
+> 而原插件只检查 OneBot 原生键 `qq` / `user_id` / `at_user_id`，导致
+> `require_at_in_group=true` 时所有群消息被静默跳过。
+> 已在 `_is_at_me` 中补充 `target_user_id` 字段兼容。
+
 自动解析 QQ 群里的多平台链接，并把图文或视频发送回群聊。
 
 ## 迁移来源

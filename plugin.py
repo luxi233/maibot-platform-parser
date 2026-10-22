@@ -650,7 +650,7 @@ class MultiPlatformParserPlugin(MaiBotPlugin):
             stype = str(seg.get("type", "") or "").lower()
             data = seg.get("data", {}) if isinstance(seg.get("data"), dict) else {}
             if stype == "at":
-                for key in ("qq", "user_id", "at_user_id"):
+                for key in ("qq", "user_id", "at_user_id", "target_user_id"):
                     value = data.get(key)
                     if value is not None and str(value) not in ("all", "0"):
                         mentioned.add(str(value))
